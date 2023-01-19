@@ -45,4 +45,4 @@ app.get('*', (req, res) => {
     res.sendFile(`${__dirname}/dist/index.html`)
 })
 
-app.listen(3000)
+app.listen(3000, () => { console.log('runing port 3000') })
