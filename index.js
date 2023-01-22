@@ -10,7 +10,7 @@ app.use(express.static(`${__dirname}/dist`))
 async function sendEmail(receiver, message) {
   const data = JSON.stringify({
     'Messages': [{
-      'From': {'Email': 'sompakorn.lap@student.mahidol.edu'},
+      'From': {'Email': ''},
       'To': [{'Email': receiver}],
       'Subject': 'test',
       'TextPart': message
@@ -22,15 +22,15 @@ async function sendEmail(receiver, message) {
     url: 'https://api.mailjet.com/v3.1/send',
     data: data,
     headers: {'Content-Type': 'application/json'},
-    auth: {username: '9346e968aafe1f9335f39bde42dd362a', password: 'b8513f8c71d3f678072aade52fc62fab'},
+    auth: {username: '', password: ''},
   }
 
   return axios(config)
     .then(function (response) {
-    //   console.log(JSON.stringify(response.data))
+      console.log(JSON.stringify(response.data))
     })
     .catch(function (error) {
-    //   console.log(error)
+      console.log(error)
     })
 }
 
